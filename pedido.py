@@ -52,6 +52,7 @@ class Pedido():
         for item in self.__itens:
             if item.codigo == codigo:
                 return None
+
         novo_item = ItemPedido(codigo, descricao, preco)
         self.__itens.append(novo_item)
         return novo_item
