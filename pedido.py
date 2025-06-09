@@ -2,10 +2,10 @@ from cliente import Cliente
 from cliente_fidelidade import ClienteFidelidade
 from item_pedido import ItemPedido
 from tipo_pedido import TipoPedido
-
+from typing import Union
 
 class Pedido():
-    def __init__(self, numero: int, cliente: (Cliente, ClienteFidelidade), tipo: TipoPedido):
+    def __init__(self, numero: int, cliente: Union[Cliente, ClienteFidelidade], tipo: TipoPedido):
         self.__numero = numero
         self.__cliente = cliente
         self.__tipo = tipo
@@ -52,9 +52,9 @@ class Pedido():
         for item in self.__itens:
             if item.codigo == codigo:
                 return None
-            item_pedido = ItemPedido(codigo, descricao, preco)
-            self.__itens.append(item_pedido)
-            return item_pedido
+        novo_item = ItemPedido(codigo, descricao, preco)
+        self.__itens.append(novo_item)
+        return novo_item
 
     '''
     Exclui um item do pedido e retorna o item excluido

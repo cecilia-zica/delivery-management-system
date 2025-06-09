@@ -24,7 +24,7 @@ class ControladorPedidos():
         for pedido in self.__pedidos:
             if pedido.numero == numero:
                 return pedido
-            return None
+        return None
 
     '''
     Incluir pedido na lista.
